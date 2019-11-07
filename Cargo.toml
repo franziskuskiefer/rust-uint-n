@@ -1,0 +1,17 @@
+[package]
+name = "uint_n"
+version = "0.1.0"
+authors = ["Franziskus Kiefer <franziskuskiefer@gmail.com>"]
+edition = "2018"
+keywords = ["integers", "specification"]
+repository = "https://github.com/franziskuskiefer/rust-uint-n"
+description = "Defining bounded natural integer types"
+license = "Apache-2.0"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+num = "0.2"
+syn = "1.0"
+quote = "1.0"
