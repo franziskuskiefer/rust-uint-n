@@ -1,6 +1,6 @@
 #[allow(unused_imports)]
 extern crate uint_n;
-use uint_n::bits;
+use uint_n::{bits, field};
 
 extern crate num;
 use num::{BigUint, Num};
@@ -8,6 +8,8 @@ use std::ops::*;
 
 #[test]
 fn basic_uint_test() {
+    #[field(7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffed)]
+    struct Mod25519;
     #[bits(256)]
     struct Uint256;
 
