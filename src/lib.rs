@@ -51,8 +51,18 @@ fn build_struct(
                 let big_x = BigUint::from_str_radix(x, 16)
                     .unwrap_or_else(|_| panic!("string is not a valid hex number {}", x));
                 if big_x > #struct_name::max().into() {
-                    panic!("(from_hex) literal too big for type {}", stringify!(#struct_name));
+                    panic!("(from_hex) literal too big for type {}\t{} > {}", stringify!(#struct_name), big_x, #struct_name::max());
                 }
+                big_x.into()
+            }
+
+            /// Read an interger from a hex string.
+            /// The integer is reduced to fit into this type.
+            #[allow(dead_code)]
+            pub fn from_hex_mod(x: &str) -> Self {
+                let big_x = BigUint::from_str_radix(x, 16)
+                    .unwrap_or_else(|_| panic!("string is not a valid hex number {}", x));
+                let big_x = big_x % #struct_name::mod_val();
                 big_x.into()
             }
 
