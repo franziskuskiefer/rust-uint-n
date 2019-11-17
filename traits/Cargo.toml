@@ -1,0 +1,9 @@
+[package]
+name = "uint_traits"
+version = "0.1.0"
+authors = ["Franziskus Kiefer <franziskuskiefer@gmail.com>"]
+edition = "2018"
+keywords = ["integers", "specification"]
+repository = "https://github.com/franziskuskiefer/rust-uint-n"
+description = "Defining bounded natural integer types"
+license = "Apache-2.0"

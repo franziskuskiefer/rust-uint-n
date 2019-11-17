@@ -1,0 +1,16 @@
+[package]
+name = "common"
+version = "0.1.0"
+authors = ["Franziskus Kiefer <franziskuskiefer@gmail.com>"]
+edition = "2018"
+keywords = ["integers", "specification"]
+repository = "https://github.com/franziskuskiefer/rust-uint-n"
+description = "Commond integer arithmetic used by uint_n and natmod_p"
+license = "Apache-2.0"
+
+[dependencies]
+uint_traits = { path = "../traits" }
+num = "0.2"
+syn = "1.0"
+quote = "1.0"
+proc-macro2 = "1.0"

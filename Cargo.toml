@@ -1,5 +1,5 @@
 [package]
-name = "uint_n"
+name = "uint"
 version = "0.1.0"
 authors = ["Franziskus Kiefer <franziskuskiefer@gmail.com>"]
 edition = "2018"
@@ -8,11 +8,14 @@ repository = "https://github.com/franziskuskiefer/rust-uint-n"
 description = "Defining bounded natural integer types"
 license = "Apache-2.0"
 
-[lib]
-proc-macro = true
+[package.metadata.docs.rs]
+features = ["uint_uint_n", "uint_natmod_p", "common", "uint_traits"]
 
 [dependencies]
-num = "0.2"
-syn = "1.0"
-quote = "1.0"
-proc-macro2 = "1.0"
+uint_uint_n = { path = "uint_n/", optional = true }
+uint_natmod_p = { path = "natmod_p/", optional = true }
+uint_traits = { path = "traits/", optional = true }
+common = { path = "common/", optional = true }
+
+[features]
+default = ["uint_uint_n", "uint_natmod_p", "common", "uint_traits"]

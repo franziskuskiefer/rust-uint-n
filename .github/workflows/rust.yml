@@ -11,5 +11,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build
       run: cargo build --verbose
-    - name: Run tests
+    - name: Run meta crate tests
       run: cargo test --verbose
+    - name: Run uint_n tests
+      run: cargo test --verbose -p uint_uint_n
+    - name: Run natmod_p tests
+      run: cargo test --verbose -p uint_natmod_p
