@@ -72,14 +72,21 @@ pub fn build_struct(
                 BigUint::from(1u32).shl(x).into()
             }
 
-            /// Returns self to the power of the argument
+            /// Returns self to the power of the argument.
+            /// The exponent has the same type as self.
             #[allow(dead_code)]
-            pub fn pow(&self, exp: &Self) -> Self {
+            pub fn pow_felem(&self, exp: Self) -> Self {
                 let a: BigUint = (*self).into();
-                let b: BigUint = (*exp).into();
+                let b: BigUint = exp.into();
                 let m: BigUint = #struct_name::mod_val().into();
                 let c: BigUint = a.modpow(&b, &m);
                 c.into()
+            }
+            /// Returns self to the power of the argument.
+            /// The exponent is a u128.
+            #[allow(dead_code)]
+            pub fn pow(&self, exp: u128) -> Self {
+                self.pow_felem(BigUint::from(exp).into())
             }
 
             /// Returns self^-1
