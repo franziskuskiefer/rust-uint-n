@@ -10,7 +10,7 @@ pub fn build_struct(
 ) -> proc_macro2::TokenStream {
     quote! {
         #[derive(Clone, Copy)]
-        struct #struct_name ([u8; #bytes]);
+        pub struct #struct_name ([u8; #bytes]);
 
         impl #struct_name {
             /// Get a new integer of this type (0).
